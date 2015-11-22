@@ -10,6 +10,7 @@ var app = express();
 app.set('port', (process.env.PORT || 3000));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+mongoose.connect('mongodb://localhost/combeacon');
 
 app.get('/', (req, res) => {
   res.send('Hello Beacon!');
@@ -33,7 +34,13 @@ app.post('/suscribe', (req, res) => {
   res.send(suscribe());
 });
 
-mongoose.connect('mongodb://localhost/combeacon');
+app.get('/routes', (req, res) => {
+  Route.find({}, (error, data) => {
+    if (error) res.send(500, { error: 'Database error' });
+    res.send(data);
+  });
+});
+
 
 var server = app.listen(app.get('port'), () => {
   var host = server.address().address;
