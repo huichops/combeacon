@@ -5,7 +5,7 @@ app.get('/', (req, res) => {
   res.send('Hello Beacon!');
 });
 
-var server = app.listen(6666, () => {
+var server = app.listen(3000, () => {
   var host = server.address().address;
   var port = server.address().port;
 
