@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/huichops/combeacon/issues"
   },
-  "homepage": "https://github.com/huichops/combeacon#readme"
+  "homepage": "https://github.com/huichops/combeacon#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
